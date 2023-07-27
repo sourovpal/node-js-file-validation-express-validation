@@ -17,7 +17,7 @@ const AdminCreateValidation = checkSchema({
             var mimetype = '';
             var mims = ['jpg', 'png', 'gif'];
             var type = 'image'; // application, image
-            if(!req.files && !req.files['avatar'] && req.files['avatar'].name == ''){
+            if(!req.files || !req.files['avatar'] || req.files['avatar'].name == ''){
 
                 return Promise.reject('Avatar field is required.');
 
